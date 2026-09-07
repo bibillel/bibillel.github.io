@@ -1,0 +1,34 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+@custom-variant dark (&:is(.dark *));
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+}
+:root,
+.dark {
+  --background: #111216;
+  --foreground: #f1eee7;
+  --primary: #ff354c;
+  --primary-foreground: #111216;
+  --border: #3d3e45;
+  --ring: #ff354c;
+  --card: #1c1d23;
+  --card-foreground: #f1eee7;
+  --popover: #1c1d23;
+  --popover-foreground: #f1eee7;
+  --muted: #292b34;
+  --muted-foreground: #b6b7c0;
+  --accent: #292b34;
+  --accent-foreground: #f1eee7;
+  --secondary: #292b34;
+  --secondary-foreground: #f1eee7;
+  --input: #3d3e45;
+  --destructive: #ff354c;
+  --radius: 0rem;
+}
