@@ -4,7 +4,7 @@ Portfolio de développeur web full-stack : Kasa, Mon Vieux Grimoire et Menu Make
 
 ## Démarrer
 
-Node.js >= 22.13 et npm. Exécuter `npm ci`, puis `npm run dev`. `npm run build` produit l'export statique. La configuration Sites conserve l'identité du site ; ne pas créer un nouveau site à chaque modification.
+Node.js >= 22.13 et npm. Exécuter `npm ci`, puis `npm run dev`. `npm run build` produit l'export statique.
 
 ## Organisation
 
@@ -41,7 +41,7 @@ La recherche vise Lyon/Grenoble et leurs environs en Auvergne-Rhône-Alpes. [Por
 
 ## Publication
 
-Le dépôt principal est [bibillel.github.io](https://github.com/bibillel/bibillel.github.io). Chaque envoi sur `main` lance `.github/workflows/pages.yml` : installation avec `npm ci`, export statique puis publication de `dist/client` sur GitHub Pages. Dans les paramètres Pages du dépôt, la source est GitHub Actions. L'ancien manifeste Sites est conservé pour l'historique ; il n'est pas utilisé pour héberger cette version.
+Le dépôt principal est [bibillel.github.io](https://github.com/bibillel/bibillel.github.io). Chaque envoi sur `main` lance `.github/workflows/pages.yml` : installation avec `npm ci`, export statique puis publication de `dist/client` sur GitHub Pages. Dans les paramètres Pages du dépôt, la source est GitHub Actions.
 
 ## Journal de l'IA
 
