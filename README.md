@@ -37,7 +37,11 @@ La commande `npx tsc --noEmit` vérifie les types. Servir `dist/client` avec un 
 
 Le contenu est pré-rendu en HTML ; le menu mobile utilise JavaScript. Captures agrandissables, détails natifs, navigation par ancres et réduction des mouvements sont intégrés. Modifier le tableau projects pour les textes et les fichiers Sass pour les styles. Refaire le build et les audits après modification. Les audits automatiques ne constituent pas une certification WCAG complète.
 
-La recherche vise Lyon/Grenoble et leurs environs en Auvergne-Rhône-Alpes. [Portfolio hébergé](https://bibillel.github.io/). L’accès public reste à confirmer après publication. ZIP et préparation de l’oral sont exclus de cette passe à la demande de Billel.
+La recherche vise Lyon/Grenoble et leurs environs en Auvergne-Rhône-Alpes. [Portfolio public](https://bibillel.github.io/), accessible sans connexion, vérifié le 8 septembre 2026. ZIP et préparation de l’oral sont exclus de cette passe à la demande de Billel.
+
+## Publication
+
+Le dépôt principal est [bibillel.github.io](https://github.com/bibillel/bibillel.github.io). Chaque envoi sur `main` lance `.github/workflows/pages.yml` : installation avec `npm ci`, export statique puis publication de `dist/client` sur GitHub Pages. Dans les paramètres Pages du dépôt, la source est GitHub Actions. L'ancien manifeste Sites est conservé pour l'historique ; il n'est pas utilisé pour héberger cette version.
 
 ## Journal de l'IA
 

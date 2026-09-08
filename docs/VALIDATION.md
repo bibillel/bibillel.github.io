@@ -16,9 +16,9 @@ Périmètre : portfolio et preuves techniques. ZIP de dépôt et préparation de
 | Clavier | Menu ouvert, Escape ferme et rend le focus au bouton ; fiche Kasa ouverte au clic puis fermée avec Entrée ; focus visible |
 | Mouvement | CSS reduced-motion désactive animations/transitions ; IntersectionObserver évite les animations quand la préférence est active. Vérification du code, pas un test avec lecteur d’écran |
 | README et journal IA | README.md et JOURNAL-IA.md préparés |
-| Dépôt dédié | Dépôt GitHub créé ; envoi du code en attente d’approbation après refus automatique |
+| Dépôt dédié | Code public : https://github.com/bibillel/bibillel.github.io ; déploiement GitHub Actions réussi |
 | README des projets | Grimoire documenté ; README détaillé Kasa préparé séparément, publication restante |
-| Accès sans connexion | Non validé : Site encore privé, ouverture publique restante |
+| Accès sans connexion | https://bibillel.github.io/ : réponse HTTP 200 sans authentification le 8 septembre 2026, titre et URL canonique vérifiés |
 
 ## Mesures et limites
 
@@ -26,6 +26,6 @@ Lighthouse mobile sur export statique local : performance 69/100, accessibilité
 
 Le premier rapport signalait que les noms accessibles des logos ne contenaient pas « BE. » ; correction vérifiée dans le second rapport. TypeScript et lint ciblé sur app passent. Le lint global signale aussi des erreurs du catalogue shadcn livré avec le starter, non utilisé dans le portfolio ; elles ne sont pas présentées comme corrigées.
 
-Tests réalisés sur l’export local, pas un audit WCAG complet, ni une garantie d’acceptation pédagogique. Le parcours avec lecteur d’écran, le zoom à 200 %, les contenus ouverts dans tous les audits et la vérification anonyme en production ne sont pas encore attestés. Billel doit s’approprier le code ; le journal ne certifie pas cet apprentissage.
+Audits réalisés sur l’export local, pas un audit WCAG complet, ni une garantie d’acceptation pédagogique. Le parcours avec lecteur d’écran, le zoom à 200 % et les contenus ouverts dans tous les audits ne sont pas encore attestés. L’accès anonyme en production a été vérifié après migration sur GitHub Pages. Billel doit s’approprier le code ; le journal ne certifie pas cet apprentissage.
 
 Le contact actuel est GitHub. Une adresse professionnelle directe n’est pas ajoutée sans choix de Billel.
