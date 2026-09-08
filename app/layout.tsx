@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import './styles/main.scss';
 export const metadata: Metadata = {
+  verification: { google: 'Q335_-2ADBRtrdb-Of-zXhVYtf_pe8V3CoSVXqrmuQo' },
   icons: { icon: '/mark.svg' },
   metadataBase: new URL('https://bibillel.github.io'),
   alternates: { canonical: '/' },
