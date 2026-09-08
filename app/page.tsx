@@ -13,7 +13,7 @@ export default function Home() {
         <Contact />
       </main>
       <footer className="footer wrap">
-        <a className="logo" href="#accueil" aria-label="Retour à l’accueil">
+        <a className="logo" href="#accueil" aria-label="BE. Retour à l’accueil">
           BE<span>.</span>
         </a>
         <p>Billel Ezzamari · Développeur web full-stack</p>

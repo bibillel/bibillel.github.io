@@ -3,9 +3,11 @@ import './globals.css';
 import './styles/main.scss';
 export const metadata: Metadata = {
   icons: { icon: '/mark.svg' },
-  title: 'Billel Ezzamari — Développeur web full-stack',
+  metadataBase: new URL('https://billel-ezzamari-portfolio.billel-ezzamari.chatgpt.site'),
+  alternates: { canonical: '/' },
+  title: 'Billel Ezzamari — Développeur full-stack junior | Lyon, Grenoble',
   description:
-    'Découvrez le parcours et les projets de Billel Ezzamari, développeur web full-stack : React, Sass, Node.js, MongoDB et conception technique.',
+    'Développeur web full-stack junior : projets React, Sass et API REST Node.js/MongoDB. Recherche à Lyon, Grenoble et en Auvergne-Rhône-Alpes.',
 };
 export default function RootLayout({
   children,

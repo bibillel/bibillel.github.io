@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://billel-ezzamari-portfolio.billel-ezzamari.chatgpt.site/sitemap.xml

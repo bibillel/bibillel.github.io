@@ -1,0 +1,23 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Kanban — Portfolio Billel Ezzamari</title>
+<style>body{font:16px/1.5 Arial;margin:24px;background:#111216;color:#f1eee7}h1{font-size:28px}button,select{font:inherit;padding:8px;color:#111216;background:#f1eee7;border:1px solid #777}button:focus-visible,select:focus-visible{outline:3px solid #ff354c;outline-offset:3px}main{display:grid;grid-template-columns:repeat(4,minmax(230px,1fr));gap:16px;overflow-x:auto}section{background:#24252c;padding:16px}h2{font-size:20px}article{padding:16px;background:#f1eee7;color:#202125;margin:12px 0;border-top:3px solid #c51f35}h3{font-size:17px;margin:0 0 8px}p{margin:8px 0}small{display:block}select{width:100%;margin-top:10px}header{max-width:900px;margin-bottom:24px}</style>
+<header><h1>Kanban du portfolio</h1><p>Quatre colonnes pour suivre les critères. Les changements restent dans ce navigateur. Exporter régulièrement pour garder une preuve du suivi.</p><p>Les tâches du 7 septembre ont été reconstituées depuis les échanges ; les durées sont des estimations de travail humain. P1 : indispensable, P2 : complément.</p><button id="export">Exporter le suivi JSON</button><p id="status" role="status"></p></header><main id="board"></main>
+<script>
+const columns=['À faire','En cours','À tester / Valider','Terminé'];
+const initial=[
+[1,'Lire les consignes',1,'P1','Cadrage','—',3],
+[2,'Valider la direction graphique',1,'P1','Design','1',3],
+[3,'Rédiger parcours et fiches',2,'P1','Contenu','1',3],
+[4,'Organiser React et Sass',1,'P1','Architecture','2',3],
+[5,'Construire sections, menu, animations',4,'P1','Développement','2,3,4',3],
+[6,'Captures, logos et PDF Menu Maker',1,'P1','Visuels','3,5',2],
+[7,'Trois offres et référencement',1,'P1','SEO','3',3],
+[8,'Lighthouse et axe',2,'P1','Accessibilité','5,6,7',2],
+[9,'Responsive et clavier',1,'P1','Test','5,6',3],
+[10,'README et dépôt GitHub',1,'P1','Documentation','4,7',1],
+[11,'Publication publique',.5,'P1','Publication','8,9,10',0],
+[12,'Choisir un contact professionnel',.25,'P2','Contenu','3',0]
+];
+let tasks=initial;try{const saved=JSON.parse(localStorage.getItem('portfolio-kanban-v1'));if(Array.isArray(saved)&&saved.length===initial.length&&saved.every(r=>Array.isArray(r)&&Number.isInteger(r[6])&&r[6]>=0&&r[6]<4))tasks=saved;}catch{}
+function render(){const board=document.getElementById('board');board.replaceChildren();columns.forEach((title,status)=>{const section=document.createElement('section');const h=document.createElement('h2');h.textContent=title;section.append(h);tasks.filter(t=>t[6]===status).forEach(t=>{const card=document.createElement('article');const name=document.createElement('h3');name.textContent=String(t[0]).padStart(2,'0')+' — '+t[1];const meta=document.createElement('p');meta.textContent=t[2]+' h · '+t[3]+' · '+t[4];const dep=document.createElement('small');dep.textContent='Dépendances : '+t[5];const select=document.createElement('select');select.setAttribute('aria-label','Statut : '+t[1]);columns.forEach((label,i)=>{const o=new Option(label,String(i),false,i===status);select.add(o)});select.onchange=()=>{t[6]=Number(select.value);try{localStorage.setItem('portfolio-kanban-v1',JSON.stringify(tasks));document.getElementById('status').textContent='Statut enregistré.'}catch{document.getElementById('status').textContent='Stockage indisponible : exporter le suivi.'}render()};card.append(name,meta,dep,select);section.append(card)});board.append(section)})}
+document.getElementById('export').onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify({date:new Date().toISOString(),columns,tasks},null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='kanban-portfolio.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};render();
+</script></html>

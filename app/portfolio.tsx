@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
+import Image from 'next/image';
 const github = 'https://github.com/bibillel';
 export function Reveal({
   children,
@@ -39,7 +40,7 @@ export function Navigation() {
   const [open, setOpen] = useState(false);
   return (
     <header className="navigation wrap">
-      <a className="logo" href="#accueil" aria-label="Billel Ezzamari, accueil">
+      <a className="logo" href="#accueil" aria-label="BE. Billel Ezzamari, accueil">
         BE<span>.</span>
       </a>
       <button
@@ -54,12 +55,6 @@ export function Navigation() {
         id="navigation-links"
         className={open ? 'nav-links is-open' : 'nav-links'}
         aria-label="Navigation principale"
-        onKeyDown={(event) => {
-          if (event.key === 'Escape') {
-            setOpen(false);
-            document.querySelector<HTMLButtonElement>('.menu-toggle')?.focus();
-          }
-        }}
       >
         {[
           ['projets', 'Projets'],
@@ -67,7 +62,12 @@ export function Navigation() {
           ['competences', 'Compétences'],
           ['contact', 'Contact ↗'],
         ].map(([id, label]) => (
-          <a key={id} href={'#' + id} onClick={() => setOpen(false)}>
+          <a key={id} href={'#' + id} onClick={() => setOpen(false)} onKeyDown={(event) => {
+            if (event.key === 'Escape') {
+              setOpen(false);
+              document.querySelector<HTMLButtonElement>('.menu-toggle')?.focus();
+            }
+          }}>
             {label}
           </a>
         ))}
@@ -79,7 +79,7 @@ export function Hero() {
   return (
     <section id="accueil" className="hero wrap">
       <div className="eyebrow hero-label">
-        <span>Billel Ezzamari / Portfolio</span>
+        <span>Billel Ezzamari / Développeur web junior</span>
         <span>Front-end · Back-end</span>
       </div>
       <div className="speed-lines" aria-hidden="true">
@@ -118,6 +118,10 @@ const projects = [
     name: 'Kasa',
     label: 'Front-end',
     stack: 'React · Sass',
+    image: '/projects/kasa.png',
+    caption: 'Kasa — accueil et catalogue des logements.',
+    logos: ['react', 'sass'],
+    result: 'Une interface organisée en composants réutilisables : catalogue de logements, fiches détaillées et navigation entre les pages.',
     title: 'Une interface de location, composant par composant.',
     context:
       'Projet de formation : réaliser l’interface d’un site de location de logements avec React.',
@@ -135,6 +139,10 @@ const projects = [
     name: 'Mon Vieux Grimoire',
     label: 'Back-end',
     stack: 'Node.js · MongoDB',
+    image: '/projects/grimoire.png',
+    caption: 'Écran de connexion du front-end fourni. Mon travail porte sur l’API.',
+    logos: ['nodedotjs', 'mongodb'],
+    result: 'Une API REST avec gestion des livres et des notes, contrôle du propriétaire avant modification ou suppression, mots de passe hachés et images converties en WebP.',
     title: 'Des livres, des notes et des accès maîtrisés.',
     context:
       'Projet de formation : développer le back-end d’un site de notation de livres, à connecter à un front-end React fourni.',
@@ -154,6 +162,10 @@ const projects = [
     name: 'Menu Maker',
     label: 'Conception',
     stack: 'Spécifications · Kanban · Veille',
+    image: '/projects/menu-maker.png',
+    caption: 'Extrait du Kanban réalisé pour préparer le développement.',
+    logos: [],
+    result: 'Un dossier de préparation avec spécifications techniques, 28 tâches estimées et une veille. L’application n’a pas été codée dans ce projet.',
     title: 'Transformer un besoin en plan de développement.',
     context:
       'Qwenta souhaite permettre aux restaurateurs de créer, personnaliser et exporter leurs menus. Ce projet de formation porte sur la préparation du développement.',
@@ -176,14 +188,16 @@ export function Projects() {
           <span className="eyebrow">01 — Sélection</span>
         </Reveal>
         <div className="project-grid">
-          {projects.map((p, i) => (
+          {projects.map((p) => (
             <Reveal className={'project project--' + p.id} key={p.id}>
-              <div className="project-cover" aria-hidden="true">
-                <span className="cover-index">0{i + 1}</span>
-                <span className="cover-title">{p.name}</span>
-                <span className="cover-category">{p.label}</span>
-              </div>
+              <figure className="project-visual">
+                <a href={p.image} target="_blank" rel="noreferrer" aria-label={'Agrandir la capture de ' + p.name + ' (nouvel onglet)'}>
+                  <Image src={p.image} alt={p.caption} width={1265} height={713} loading="lazy" unoptimized />
+                </a>
+                <figcaption>{p.caption}</figcaption>
+              </figure>
               <div className="project-meta eyebrow">
+                {p.logos.map(logo => <Image key={logo} className="stack-logo" src={'/logos/' + logo + '.svg'} alt="" width={24} height={24} unoptimized />)}
                 {p.label} / {p.stack}
               </div>
               <h3>{p.name}</h3>
@@ -196,6 +210,7 @@ export function Projects() {
                   {[
                     ['Le contexte', p.context],
                     ['Mon travail', p.work],
+                    ['Le résultat', p.result],
                     ['La difficulté', p.challenge],
                     ['Ce que j’ai appris', p.learning],
                     ['Pour aller plus loin', p.improvement],
@@ -215,6 +230,7 @@ export function Projects() {
                       Voir le code sur GitHub ↗
                     </a>
                   )}
+                  {p.id === 'menu-maker' && <a className="repo-link" href="/projects/menu-maker-kanban.pdf" target="_blank" rel="noreferrer">Consulter le Kanban (PDF, 103 Ko) ↗</a>}
                 </div>
               </details>
             </Reveal>
@@ -301,7 +317,7 @@ export function About() {
             <p>
               Node.js · MongoDB
               <br />
-              API · Authentification
+              API REST · Authentification
             </p>
           </div>
           <div>
@@ -329,8 +345,10 @@ export function Contact() {
             <span>la suite ensemble ?</span>
           </h2>
           <p>
-            Je souhaite rejoindre une équipe et contribuer à des projets web en
-            front-end et en back-end.
+            Je recherche un poste de développeur full-stack junior à Lyon,
+            Grenoble ou dans leurs environs, plus largement en Auvergne-Rhône-Alpes.
+            Je souhaite contribuer avec React, JavaScript et Node.js, et reste
+            ouvert au télétravail.
           </p>
           <a
             className="primary-link"
