@@ -81,6 +81,45 @@
     margin-top: 1rem;
   }
 }
+.contact-form {
+  max-width: 640px;
+  margin-top: 3rem;
+  display: grid;
+  gap: 0.75rem;
+  label {
+    font-weight: 700;
+    margin-top: 0.5rem;
+  }
+  input,
+  textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 0.75rem;
+    font: inherit;
+    color: #f1eee7;
+    background: #111216;
+    border: 1px solid #9295a0;
+    border-radius: 0;
+  }
+  textarea {
+    resize: vertical;
+  }
+  .primary-link {
+    border: 0;
+    cursor: pointer;
+    justify-self: start;
+  }
+  .field-error {
+    color: #ff8997;
+    margin: 0;
+  }
+  [aria-invalid='true'] {
+    border: 2px solid #ff8997;
+  }
+  a {
+    overflow-wrap: anywhere;
+  }
+}
 @media (max-width: 750px) {
   .about {
     padding-block: 3rem;

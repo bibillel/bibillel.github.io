@@ -1,6 +1,5 @@
 @keyframes arrive {
   from {
-    opacity: 0;
     transform: translateY(16px);
   }
   to {
@@ -10,7 +9,6 @@
 }
 @keyframes title-in {
   from {
-    opacity: 0;
     transform: translateX(-20px);
   }
   to {
