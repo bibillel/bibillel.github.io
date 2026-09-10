@@ -1,31 +1,24 @@
-# Contrôle des critères — 8 septembre 2026
+# Validation du portfolio — 10 septembre 2026
 
-Périmètre : portfolio et preuves techniques. ZIP de dépôt et préparation de l’oral exclus à la demande de Billel.
+## Contrôles réalisés
 
-| Critère | État et preuve |
-|---|---|
-| Deux projets de formation minimum | Kasa et Grimoire, plus Menu Maker sans code |
-| Contextes, travail, difficultés, apprentissages, résultats, améliorations | Fiches détaillées sur la page |
-| Captures et logos techniques | Images locales, agrandissement et légendes ; front fourni du Grimoire explicitement crédité |
-| Parcours et objectif professionnel | BTS CI, reconversion, motivations, compétences et recherche Lyon/Grenoble |
-| Réalisation en code | React/TypeScript + Sass, export HTML statique |
-| Kanban | KANBAN.md et kanban.html : quatre états, estimations, priorités, étiquettes, dépendances ; historique reconstitué explicitement signalé |
-| SEO | SEO.md : trois offres analysées, limites de correspondance précisées ; title, description, canonique, langue, robots, sitemap |
-| Accessibilité automatique | Lighthouse 100/100 accessibilité, bonnes pratiques et SEO ; axe 4.13 : zéro violation détectée sur l’état initial testé |
-| Responsive | Largeurs 320, 360, 768 et 1280 px, pas de débordement horizontal mesuré |
-| Clavier | Menu ouvert, Escape ferme et rend le focus au bouton ; fiche Kasa ouverte au clic puis fermée avec Entrée ; focus visible |
-| Mouvement | CSS reduced-motion désactive animations/transitions ; IntersectionObserver évite les animations quand la préférence est active. Vérification du code, pas un test avec lecteur d’écran |
-| README et journal IA | README.md et JOURNAL-IA.md préparés |
-| Dépôt dédié | Code public : https://github.com/bibillel/bibillel.github.io ; déploiement GitHub Actions réussi |
-| README des projets | Grimoire documenté ; README détaillé Kasa préparé séparément, publication restante |
-| Accès sans connexion | https://bibillel.github.io/ : réponse HTTP 200 sans authentification le 8 septembre 2026, titre et URL canonique vérifiés |
+- Sections accueil, projets, à propos, compétences, parcours et contact présentes.
+- Trois projets : Kasa, Mon Vieux Grimoire et Menu Maker ; contextes, objectifs, stacks, compétences, résultats et améliorations explicités.
+- Réalisation full-code React/TypeScript/Sass, dépôt Git dédié et README.
+- Formulaire : labels associés, type email, champs obligatoires, erreurs textuelles, aria-invalid, annonce des erreurs et focus sur le premier champ invalide. Les cas vide et adresse invalide ont été testés le 9 septembre.
+- Le formulaire ouvre un mailto prérempli ; le visiteur confirme l'envoi dans sa messagerie. Aucun envoi effectif n'a été testé.
+- Largeurs 320, 360, 768 et 1280 px : aucun débordement horizontal mesuré le 9 septembre.
+- Navigation clavier : focus visible, menu mobile, fermeture par Échap et restitution du focus, ouverture des trois fiches avec Entrée.
+- Images : aucune image sans attribut alt dans le DOM contrôlé. HTML sémantique et métadonnées SEO présents.
+- Axe Chrome et Firefox : aucune violation détectée dans l'état initial testé, rapports du 9 septembre dans audits/.
+- Lighthouse final local du 9 septembre : performance 84, accessibilité 100, bonnes pratiques 100, SEO 100. Deux outils d'accessibilité ont ainsi été utilisés, conformément à la page Accessibilité OpenClassrooms consultée.
+- Lint global, TypeScript et build réussis après retrait du catalogue de composants inutilisés.
+- PDF et ZIP : une page avec liens cliquables, archive contenant seulement le PDF ; intégrité vérifiée. Voir ../LIVRABLE.md.
 
-## Mesures et limites
+## Limites
 
-Lighthouse mobile sur export statique local : performance 69/100, accessibilité 100, bonnes pratiques 100, SEO 100. Le score performance demeure un axe d’amélioration ; le réseau/CPU simulés et la machine influencent la mesure. Les rapports HTML/JSON ont été produits ; la commande Lighthouse a ensuite signalé une erreur Windows EPERM lors du nettoyage du profil temporaire. Il ne faut donc pas présenter cette commande comme terminée sans erreur.
+Les audits automatiques couvrent notamment les contrastes détectables dans les états analysés, sans certifier une conformité WCAG complète. Les tests manuels détaillés ont été effectués dans le navigateur Chromium. Firefox a été testé avec axe, pas par un parcours manuel complet. Lecteur d'écran et zoom à 200 % restent non attestés. La réduction des mouvements a été vérifiée dans le code.
 
-Le premier rapport signalait que les noms accessibles des logos ne contenaient pas « BE. » ; correction vérifiée dans le second rapport. TypeScript et lint ciblé sur app passent. Le lint global signale aussi des erreurs du catalogue shadcn livré avec le starter, non utilisé dans le portfolio ; elles ne sont pas présentées comme corrigées.
+Les mesures Lighthouse concernent l'export local. Les rapports ont été produits avant une erreur Windows EPERM de nettoyage du profil ; la commande ne doit pas être décrite comme terminée sans erreur. La publication et les contrôles publics finaux sont à confirmer après le dernier envoi.
 
-Audits réalisés sur l’export local, pas un audit WCAG complet, ni une garantie d’acceptation pédagogique. Le parcours avec lecteur d’écran, le zoom à 200 % et les contenus ouverts dans tous les audits ne sont pas encore attestés. L’accès anonyme en production a été vérifié après migration sur GitHub Pages. Billel doit s’approprier le code ; le journal ne certifie pas cet apprentissage.
-
-Le contact actuel est GitHub. Une adresse professionnelle directe n’est pas ajoutée sans choix de Billel.
+L'explication du code et des choix par Billel reste à préparer et à évaluer en soutenance. Ce rapport ne garantit pas l'acceptation pédagogique.

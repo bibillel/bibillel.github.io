@@ -37,7 +37,9 @@ La commande `npx tsc --noEmit` vérifie les types. Servir `dist/client` avec un 
 
 Le contenu est pré-rendu en HTML ; le menu mobile utilise JavaScript. Captures agrandissables, détails natifs, navigation par ancres et réduction des mouvements sont intégrés. Modifier le tableau projects pour les textes et les fichiers Sass pour les styles. Refaire le build et les audits après modification. Les audits automatiques ne constituent pas une certification WCAG complète.
 
-L
+Le [portfolio public](https://bibillel.github.io/) est accessible sans connexion. Les contrôles et leurs limites sont détaillés dans [VALIDATION.md](docs/VALIDATION.md).
+
+Le formulaire de contact associe chaque champ à un label et affiche les erreurs de saisie. Il prépare un e-mail dans la messagerie du visiteur, qui confirme lui-même l'envoi ; il ne transmet pas les messages à un serveur.
 
 ## Publication
 
