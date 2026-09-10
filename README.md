@@ -18,7 +18,7 @@ Les projets se déplient avec l'élément HTML natif details, utilisable au clav
 
 ## Projets et attribution
 
-Les textes proviennent des échanges avec Billel et des dépôts/documentations consultés. Les pistes d'amélioration sont des propositions. Menu Maker est une étude de conception sans application codée. Le front-end de Mon Vieux Grimoire était fourni.
+Les textes proviennent des dépôts/documentations consultés. Les pistes d'amélioration sont des propositions. Menu Maker est une étude de conception sans application codée. Le front-end de Mon Vieux Grimoire était fourni.
 
 - [Kasa](https://github.com/bibillel/projet-5) : interface React/Sass, capture réelle de l’accueil exécuté localement.
 - [Mon Vieux Grimoire](https://github.com/bibillel/openclassroom-projet-D-veloppez-le-back-end-d-un-site-de-notation-de-livres) : API Node.js/MongoDB. La capture montre la connexion du front-end fourni ; l’API avec base de données n’a pas été réauditée dans le cadre du portfolio.
@@ -37,7 +37,7 @@ La commande `npx tsc --noEmit` vérifie les types. Servir `dist/client` avec un 
 
 Le contenu est pré-rendu en HTML ; le menu mobile utilise JavaScript. Captures agrandissables, détails natifs, navigation par ancres et réduction des mouvements sont intégrés. Modifier le tableau projects pour les textes et les fichiers Sass pour les styles. Refaire le build et les audits après modification. Les audits automatiques ne constituent pas une certification WCAG complète.
 
-La recherche vise Lyon/Grenoble et leurs environs en Auvergne-Rhône-Alpes. [Portfolio public](https://bibillel.github.io/), accessible sans connexion, vérifié le 8 septembre 2026. ZIP et préparation de l’oral sont exclus de cette passe à la demande de Billel.
+L
 
 ## Publication
 
@@ -45,4 +45,4 @@ Le dépôt principal est [bibillel.github.io](https://github.com/bibillel/bibill
 
 ## Journal de l'IA
 
-7 septembre 2026 : aide à l'analyse des consignes, rédaction à partir du vécu de Billel, exploration puis validation d'une direction graphique rouge/noir, création des composants et styles. Billel doit relire les fichiers, comprendre les imports, l'état du menu et l'observation du défilement, puis adapter et expliquer son code avant la soutenance.
+7 septembre 2026 : aide à l'analyse des consignes, exploration puis validation d'une direction graphique rouge/noir, création des composants et styles. 
