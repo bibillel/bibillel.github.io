@@ -36,3 +36,19 @@ Site public : https://bibillel.github.io/.
 - Aucun outil disponible ne permet de piloter ici un lecteur d'écran natif. La présence des noms et erreurs dans l'arbre d'accessibilité ne constitue pas un test audio avec NVDA ou Narrateur.
 
 Pour terminer les deux contrôles manuels : ouvrir le site dans Chrome, régler le zoom à 200 % via le menu du navigateur, parcourir les sections et le formulaire ; puis parcourir titres, liens, fiches et champs avec NVDA ou Narrateur et vérifier l'annonce des erreurs. Ne cocher ces contrôles qu'après exécution réelle.
+
+## Mise à jour du contact et du parcours le 3 novembre 2026
+
+Cette section décrit les contrôles de cette modification. Les rapports de septembre restent des résultats historiques et n’ont pas été réexécutés dans leur intégralité.
+
+- Lint (`npm run lint`) et types (`tsc --noEmit --incremental false`) : réussis.
+- Export statique (`npm run build`) : réussi. Le pré-rendu requiert l’ouverture d’un serveur local ; une première exécution sous restrictions réseau a échoué avec EPERM, puis l’exécution autorisée s’est terminée avec le code 0.
+- Export servi par HTTP sur localhost et ouvert dans le navigateur : présentation en alternance, contact, adresse et alternative Gmail présents.
+- Formulaire vide : les trois champs sont invalides et le focus reste sur le nom ; aucun départ vers le prestataire.
+- Nom et message composés d’espaces : erreurs textuelles, annonce et focus sur le nom ; aucun départ vers le prestataire.
+- Adresse sans arobase : rejet par la validation HTML, focus sur l’adresse et maintien de l’URL locale.
+- Contrat de transmission inspecté dans le DOM : POST vers FormSubmit, champs nom, email et message, sujet fixe, modèle tableau et champ piège ; contrôle antispam du prestataire conservé.
+- Pas de message de livraison simulé côté client. Les erreurs de champ s’effacent quand le champ concerné est modifié.
+- Métadonnées description et Open Graph actualisées ; aucune entreprise ni date de début d’alternance inventée.
+
+**Limite ouverte :** l’activation FormSubmit et la réception réelle en boîte Gmail ne sont pas attestées. La procédure est dans [CONTACT.md](CONTACT.md). La page de confirmation du service ne prouve pas à elle seule la livraison. Aucun score Lighthouse ni audit complet d’accessibilité récent n’est revendiqué pour cette modification.

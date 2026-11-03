@@ -92,7 +92,7 @@ export function Hero() {
     <section id="accueil" className="hero wrap">
       <div className="eyebrow hero-label">
         <span>Billel Ezzamari / Développeur web junior</span>
-        <span>Front-end · Back-end</span>
+        <span>En alternance · Epitech Lyon</span>
       </div>
       <div className="speed-lines" aria-hidden="true">
         <i />
@@ -329,9 +329,9 @@ export function About() {
             évoluer au fil des modifications.
           </p>
           <p>
-            Je souhaite travailler en full-stack pour utiliser régulièrement mes
-            compétences, consolider mes acquis et développer de bonnes pratiques
-            professionnelles.
+            Je poursuis aujourd’hui mon Bachelor CDA à Epitech Lyon en
+            alternance. Cette nouvelle étape me permet de consolider mes acquis
+            et de développer mes pratiques professionnelles en entreprise.
           </p>
         </div>
         <ol className="journey">
@@ -352,11 +352,11 @@ export function About() {
             </p>
           </li>
           <li>
-            <span className="eyebrow">La suite</span>
-            <h3>Un rôle full-stack</h3>
+            <span className="eyebrow">Aujourd’hui</span>
+            <h3>Epitech et alternance</h3>
             <p>
-              Contribuer côté interface comme côté serveur et continuer à
-              apprendre.
+              Un Bachelor CDA à Epitech Lyon et une alternance pour continuer à
+              apprendre, côté interface comme côté serveur.
             </p>
           </li>
         </ol>
@@ -403,19 +403,28 @@ export function Contact() {
         <Reveal>
           <span className="eyebrow">04 — Échangeons</span>
           <h2>
-            Et si on écrivait
+            Parlons de code
             <br />
-            <span>la suite ensemble ?</span>
+            <span>et de projets.</span>
           </h2>
           <p>
-            Je recherche un poste de développeur full-stack junior à Lyon,
-            Grenoble ou dans leurs environs, plus largement en
-            Auvergne-Rhône-Alpes. Je souhaite contribuer avec React, JavaScript
-            et Node.js, et reste ouvert au télétravail.
+            Je suis désormais en alternance et poursuis mon Bachelor CDA à
+            Epitech Lyon. Une question sur mes projets, un retour technique ou
+            une envie d’échanger sur le développement web ? Écrivez-moi.
           </p>
           <p>
             <a className="text-link" href="mailto:billel.ezzamari@gmail.com">
               billel.ezzamari@gmail.com
+            </a>
+          </p>
+          <p>
+            <a
+              className="text-link"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=billel.ezzamari%40gmail.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Écrire depuis Gmail (nouvel onglet) ↗
             </a>
           </p>
           <a

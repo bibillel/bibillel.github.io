@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
   title: 'Billel Ezzamari — Développeur full-stack junior | Lyon, Grenoble',
   description:
-    'Développeur web full-stack junior : projets React, Sass et API REST Node.js/MongoDB. Recherche à Lyon, Grenoble et en Auvergne-Rhône-Alpes.',
+    'Développeur web full-stack junior en alternance et en Bachelor CDA à Epitech Lyon. Découvrez mes projets React, TypeScript, Sass et API REST Node.js/MongoDB.',
   keywords: [
     'Billel Ezzamari',
     'développeur web junior',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: 'Billel Ezzamari — Portfolio',
     title: 'Billel Ezzamari — Développeur full-stack junior',
     description:
-      'Portfolio de Billel Ezzamari, développeur web full-stack junior à la recherche d’un poste à Lyon, Grenoble et leurs environs.',
+      'Portfolio de Billel Ezzamari, développeur web full-stack junior en alternance et étudiant en Bachelor CDA à Epitech Lyon.',
   },
 };
 export default function RootLayout({

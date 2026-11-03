@@ -2,6 +2,8 @@
 
 Portfolio de développeur web full-stack : Kasa, Mon Vieux Grimoire et Menu Maker. Interface React et TypeScript avec styles Sass, exécutée avec Vinext/Vite et exportée en pages statiques. Aucune base de données ni API métier nécessaire pour le portfolio.
 
+Billel poursuit son Bachelor CDA à Epitech Lyon et est désormais en alternance. Le portfolio présente son parcours et ses projets ; il ne diffuse plus de recherche de poste ou d’alternance.
+
 ## Démarrer
 
 Node.js >= 22.13 et npm. Exécuter `npm ci`, puis `npm run dev`. `npm run build` produit l'export statique.
@@ -39,7 +41,11 @@ Le contenu est pré-rendu en HTML ; le menu mobile utilise JavaScript. Captures 
 
 Le [portfolio public](https://bibillel.github.io/) est accessible sans connexion. Les contrôles et leurs limites sont détaillés dans [VALIDATION.md](docs/VALIDATION.md).
 
-Le formulaire de contact associe chaque champ à un label et affiche les erreurs de saisie. Il prépare un e-mail dans la messagerie du visiteur, qui confirme lui-même l'envoi ; il ne transmet pas les messages à un serveur.
+Le formulaire de contact transmet les champs nom, e-mail et message à [FormSubmit](https://formsubmit.co/documentation) par POST HTTPS. Il fonctionne sur GitHub Pages sans serveur applicatif, clé API ni application de messagerie installée chez le visiteur. La validation HTML reste disponible sans JavaScript ; les champs composés uniquement d’espaces sont également refusés après hydratation. Le service gère la vérification antispam et la page de confirmation. Le site n’annonce jamais lui-même une livraison en boîte mail.
+
+**Activation indispensable :** le destinataire doit confirmer son adresse via le premier e-mail FormSubmit avant la réception des messages. L’intégration seule ne prouve pas cette activation ni la livraison. Voir [la procédure et les limites du contrôle](docs/CONTACT.md). Un lien de rédaction Gmail et l’adresse e-mail restent disponibles en alternative.
+
+- [Pistes d’amélioration priorisées](docs/AMELIORATIONS.md)
 
 ## Publication
 
