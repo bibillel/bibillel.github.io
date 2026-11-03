@@ -4,10 +4,16 @@ import { useState, type SyntheticEvent } from 'react';
 
 export function ContactForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [ready, setReady] = useState(false);
-
-  function prepareEmail(event: SyntheticEvent<HTMLFormElement>) {
-    event.preventDefault();
+  function clearFieldError(event: SyntheticEvent<HTMLFormElement>) {
+    const field = (event.target as HTMLInputElement | HTMLTextAreaElement).name;
+    setErrors((current) => {
+      if (!current[field]) return current;
+      const next = { ...current };
+      delete next[field];
+      return next;
+    });
+  }
+  function validateMessage(event: SyntheticEvent<HTMLFormElement>) {
     const form = event.currentTarget;
     const name = (
       form.elements.namedItem('name') as HTMLInputElement
@@ -26,31 +32,53 @@ export function ContactForm() {
         'Indiquez une adresse e-mail valide, par exemple nom@entreprise.fr.';
     if (!message) nextErrors.message = 'Écrivez votre message.';
     setErrors(nextErrors);
-    setReady(false);
     const firstError = Object.keys(nextErrors)[0];
     if (firstError) {
+      event.preventDefault();
       (form.elements.namedItem(firstError) as HTMLElement)?.focus();
       return;
     }
-    const subject = encodeURIComponent('Contact portfolio — ' + name);
-    const body = encodeURIComponent(`${message}\n\n${name}\n${email}`);
-    setReady(true);
-    window.location.href = `mailto:billel.ezzamari@gmail.com?subject=${subject}&body=${body}`;
+    // Let the browser POST to FormSubmit, including its antispam check and
+    // confirmation page. A local validation must never claim delivery.
   }
 
   return (
     <form
       className="contact-form"
-      onSubmit={prepareEmail}
-      noValidate
+      action="https://formsubmit.co/billel.ezzamari@gmail.com"
+      method="POST"
+      onSubmit={validateMessage}
+      onInput={clearFieldError}
       aria-labelledby="contact-form-title"
     >
-      <h3 id="contact-form-title">Préparer un message</h3>
+      <h3 id="contact-form-title">Envoyer un message</h3>
       <p id="contact-help">
-        Tous les champs sont obligatoires. Ce formulaire ouvre votre application
-        de messagerie ; vous y confirmez l’envoi. Aucune donnée n’est
-        enregistrée sur ce site.
+        Tous les champs sont obligatoires. Votre message est transmis à
+        FormSubmit pour me parvenir par e-mail. Une vérification antispam peut
+        être demandée avant la confirmation.{' '}
+        <a
+          href="https://formsubmit.co/privacy.pdf"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Confidentialité du service (PDF, nouvel onglet)
+        </a>
       </p>
+      <input
+        type="hidden"
+        name="_subject"
+        value="Contact depuis le portfolio de Billel Ezzamari"
+      />
+      <input type="hidden" name="_template" value="table" />
+      <div hidden aria-hidden="true">
+        <label htmlFor="contact-website">Laisser ce champ vide</label>
+        <input
+          id="contact-website"
+          name="_honey"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
       <label htmlFor="contact-name">Votre nom</label>
       <input
         id="contact-name"
@@ -102,14 +130,12 @@ export function ContactForm() {
         type="submit"
         aria-describedby="contact-help"
       >
-        Ouvrir ma messagerie
+        Envoyer mon message
       </button>
       <output aria-live="polite">
-        {ready
-          ? 'Votre message est prêt à être ouvert dans votre messagerie. Il n’a pas encore été envoyé. Si aucune application ne s’ouvre, utilisez l’adresse e-mail ci-dessus.'
-          : Object.keys(errors).length
-            ? 'Certains champs sont à corriger. Consultez les indications sous chaque champ.'
-            : ''}
+        {Object.keys(errors).length
+          ? 'Certains champs sont à corriger. Consultez les indications sous chaque champ.'
+          : ''}
       </output>
     </form>
   );
