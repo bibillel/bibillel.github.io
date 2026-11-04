@@ -2,6 +2,12 @@
 
 import { useState, type SyntheticEvent } from 'react';
 
+const formId = process.env.NEXT_PUBLIC_FORMSPREE_ID?.trim();
+const formAction =
+  formId && /^[a-z0-9]+$/.test(formId)
+    ? `https://formspree.io/f/${formId}`
+    : undefined;
+
 export function ContactForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   function clearFieldError(event: SyntheticEvent<HTMLFormElement>) {
@@ -15,9 +21,6 @@ export function ContactForm() {
   }
   function validateMessage(event: SyntheticEvent<HTMLFormElement>) {
     const form = event.currentTarget;
-    const name = (
-      form.elements.namedItem('name') as HTMLInputElement
-    ).value.trim();
     const email = (
       form.elements.namedItem('email') as HTMLInputElement
     ).value.trim();
@@ -25,7 +28,6 @@ export function ContactForm() {
       form.elements.namedItem('message') as HTMLTextAreaElement
     ).value.trim();
     const nextErrors: Record<string, string> = {};
-    if (!name) nextErrors.name = 'Indiquez votre nom.';
     const emailInput = form.elements.namedItem('email') as HTMLInputElement;
     if (!email || !emailInput.validity.valid)
       nextErrors.email =
@@ -38,14 +40,14 @@ export function ContactForm() {
       (form.elements.namedItem(firstError) as HTMLElement)?.focus();
       return;
     }
-    // Let the browser POST to FormSubmit, including its antispam check and
-    // confirmation page. A local validation must never claim delivery.
   }
+
+  if (!formAction) return null;
 
   return (
     <form
       className="contact-form"
-      action="https://formsubmit.co/billel.ezzamari@gmail.com"
+      action={formAction}
       method="POST"
       onSubmit={validateMessage}
       onInput={clearFieldError}
@@ -53,15 +55,17 @@ export function ContactForm() {
     >
       <h3 id="contact-form-title">Envoyer un message</h3>
       <p id="contact-help">
-        Tous les champs sont obligatoires. Votre message est transmis à
-        FormSubmit pour me parvenir par e-mail. Une vérification antispam peut
-        être demandée avant la confirmation.{' '}
+        Votre e-mail et votre message sont nécessaires pour que je puisse
+        traiter votre demande et vous répondre. Formspree relaie votre message
+        vers ma boîte Gmail et peut demander une vérification antispam. Pour
+        toute demande liée à vos données, écrivez à Billel Ezzamari à l’adresse
+        indiquée ci-dessus.{' '}
         <a
-          href="https://formsubmit.co/privacy.pdf"
+          href="https://formspree.io/legal/privacy-policy/"
           target="_blank"
           rel="noreferrer"
         >
-          Confidentialité du service (PDF, nouvel onglet)
+          Confidentialité de Formspree (nouvel onglet)
         </a>
       </p>
       <input
@@ -69,31 +73,22 @@ export function ContactForm() {
         name="_subject"
         value="Contact depuis le portfolio de Billel Ezzamari"
       />
-      <input type="hidden" name="_template" value="table" />
       <div hidden aria-hidden="true">
         <label htmlFor="contact-website">Laisser ce champ vide</label>
         <input
           id="contact-website"
-          name="_honey"
+          name="_gotcha"
           tabIndex={-1}
           autoComplete="off"
         />
       </div>
-      <label htmlFor="contact-name">Votre nom</label>
+      <label htmlFor="contact-name">Votre nom (facultatif)</label>
       <input
         id="contact-name"
         name="name"
         autoComplete="name"
-        required
         maxLength={100}
-        aria-invalid={Boolean(errors.name)}
-        aria-describedby={errors.name ? 'error-name' : undefined}
       />
-      {errors.name && (
-        <p id="error-name" className="field-error">
-          {errors.name}
-        </p>
-      )}
       <label htmlFor="contact-email">Votre adresse e-mail</label>
       <input
         id="contact-email"

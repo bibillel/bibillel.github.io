@@ -1,3 +1,4 @@
+import { Audience } from './audience';
 import { Navigation, Hero, Projects, About, Contact } from './portfolio';
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
           BE<span>.</span>
         </a>
         <p>Billel Ezzamari · Développeur web full-stack</p>
+        <Audience />
         <a href="#accueil">Retour en haut ↑</a>
       </footer>
     </>

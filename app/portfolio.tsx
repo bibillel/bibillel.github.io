@@ -278,6 +278,7 @@ export function Projects() {
                     <a
                       className="repo-link"
                       href={p.url}
+                      data-audience={`code-${p.id}`}
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -288,6 +289,7 @@ export function Projects() {
                     <a
                       className="repo-link"
                       href="/projects/menu-maker-kanban.pdf"
+                      data-audience="kanban-menu-maker"
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -413,7 +415,11 @@ export function Contact() {
             une envie d’échanger sur le développement web ? Écrivez-moi.
           </p>
           <p>
-            <a className="text-link" href="mailto:billel.ezzamari@gmail.com">
+            <a
+              className="text-link"
+              href="mailto:billel.ezzamari@gmail.com"
+              data-audience="contact-email"
+            >
               billel.ezzamari@gmail.com
             </a>
           </p>
@@ -421,6 +427,7 @@ export function Contact() {
             <a
               className="text-link"
               href="https://mail.google.com/mail/?view=cm&fs=1&to=billel.ezzamari%40gmail.com"
+              data-audience="contact-gmail"
               target="_blank"
               rel="noreferrer"
             >
@@ -430,6 +437,7 @@ export function Contact() {
           <a
             className="primary-link"
             href={github}
+            data-audience="profil-github"
             target="_blank"
             rel="noreferrer"
           >

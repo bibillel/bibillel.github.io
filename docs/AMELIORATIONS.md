@@ -4,7 +4,7 @@
 
 | Priorité | Piste | Travail concret | Critère de fin | Effort indicatif |
 |---|---|---|---|---|
-| P0 | Confirmer la réception des contacts | Activer FormSubmit et faire un test de bout en bout avec sa propre adresse ; vérifier aussi Répondre | Message reçu dans la bonne boîte et réponse adressée à l’expéditeur | Court, dépend de l’activation |
+| P0 | Confirmer la réception des contacts | Configurer Formspree et faire un test de bout en bout avec sa propre adresse ; vérifier aussi Répondre | Message reçu dans la bonne boîte et réponse adressée à l’expéditeur | Court, dépend de l’activation |
 | P1 | Décrire l’expérience en alternance | Ajouter entreprise, intitulé, début et missions uniquement après confirmation de Billel ; distinguer travail personnel et travail d’équipe | Profil GitHub et portfolio cohérents, sans information confidentielle | Court |
 | P1 | Montrer les projets récents | Préparer une fiche Jikabo et actualiser Garage à partir de l’état réel : périmètre, rôle personnel, stack, captures et liens accessibles | Chaque affirmation peut être rapprochée d’un livrable ou dépôt ; aucune fonctionnalité prévue présentée comme réalisée | Moyen |
 | P1 | Protéger la publication | Ajouter lint et TypeScript au workflow Pages, puis un contrôle navigateur du contact sans envoyer de message réel dans la CI | Un défaut de type ou de formulaire bloque le déploiement ; aucun e-mail n’est émis par les tests automatiques | Court à moyen |
@@ -22,4 +22,4 @@
 
 ## Ordre conseillé
 
-Terminer d’abord l’activation et le contrôle de réception. Ajouter ensuite l’expérience et une preuve de projet récente, puis sécuriser le workflow et actualiser les audits. L’ajout de statistiques de fréquentation ou d’un nouveau service payant n’est pas nécessaire à ce stade.
+Terminer d’abord l’activation et le contrôle de réception. Ajouter ensuite l’expérience et une preuve de projet récente, puis sécuriser le workflow et actualiser les audits.

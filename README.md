@@ -41,9 +41,15 @@ Le contenu est pré-rendu en HTML ; le menu mobile utilise JavaScript. Captures 
 
 Le [portfolio public](https://bibillel.github.io/) est accessible sans connexion. Les contrôles et leurs limites sont détaillés dans [VALIDATION.md](docs/VALIDATION.md).
 
-Le formulaire de contact transmet les champs nom, e-mail et message à [FormSubmit](https://formsubmit.co/documentation) par POST HTTPS. Il fonctionne sur GitHub Pages sans serveur applicatif, clé API ni application de messagerie installée chez le visiteur. La validation HTML reste disponible sans JavaScript ; les champs composés uniquement d’espaces sont également refusés après hydratation. Le service gère la vérification antispam et la page de confirmation. Le site n’annonce jamais lui-même une livraison en boîte mail.
+Le contact propose l’adresse e-mail et un lien de rédaction Gmail. Le formulaire externe s’affiche une fois Formspree configuré et transmet l’e-mail, le message et le nom facultatif par POST HTTPS. Voir [la procédure d’activation et de test](docs/CONTACT.md).
 
-**Activation indispensable :** le destinataire doit confirmer son adresse via le premier e-mail FormSubmit avant la réception des messages. L’intégration seule ne prouve pas cette activation ni la livraison. Voir [la procédure et les limites du contrôle](docs/CONTACT.md). Un lien de rédaction Gmail et l’adresse e-mail restent disponibles en alternative.
+## Statistiques de visite
+
+[GoatCounter](https://www.goatcounter.com/) compte les visites et les clics sur les dépôts des projets, le PDF du Kanban, le profil GitHub et les liens de contact. Les chiffres couvrent les visiteurs qui activent la mesure dans le pied de page. Le choix vaut jusqu’au rechargement de la page et peut être retiré au même endroit. Seuls le chemin fixe de la page ou un nom d’événement prédéfini sont envoyés par le site. Aucun contenu du formulaire ni URL de destination n’est inclus.
+
+1. Créer le site dans [GoatCounter](https://www.goatcounter.com/signup) avec le domaine `bibillel.github.io` et garder la collecte individuelle des pages vues désactivée.
+2. Dans les variables GitHub Actions du dépôt, ajouter `NEXT_PUBLIC_GOATCOUNTER_CODE` avec le nom de compte qui précède `.goatcounter.com`, puis relancer le workflow Pages. Sans cette variable, la mesure est désactivée.
+3. Sur le site publié, ouvrir « Statistiques de visite », autoriser la mesure, puis cliquer sur un lien de projet. Vérifier les compteurs dans le tableau de bord GoatCounter, sous le chemin `/` et dans les événements.
 
 - [Pistes d’amélioration priorisées](docs/AMELIORATIONS.md)
 
